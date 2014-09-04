@@ -1,4 +1,0 @@
-/* Localized versions of Info.plist keys */
-
-"warning.podfile.exists" = "A Podfile already exists in the current workspace.";
-"warning.podfile.exists.info" = "Delete the existing Podfile before creating a new one";

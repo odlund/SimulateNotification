@@ -15,9 +15,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "8A808599178B93C4006E56E3"
-               BuildableName = "CocoaPods.xcplugin"
-               BlueprintName = "CocoaPods"
-               ReferencedContainer = "container:CocoaPods.xcodeproj">
+               BuildableName = "SimulateNotification.xcplugin"
+               BlueprintName = "SimulateNotification"
+               ReferencedContainer = "container:SimulateNotification.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>

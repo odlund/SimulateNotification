@@ -2,6 +2,6 @@
 <Workspace
    version = "1.0">
    <FileRef
-      location = "self:CocoaPods.xcodeproj">
+      location = "self:SimulateNotification.xcodeproj">
    </FileRef>
 </Workspace>
