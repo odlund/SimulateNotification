@@ -22,14 +22,33 @@
 
 - (id)initWithBundle:(NSBundle *)plugin {
     if (self = [super init]) {
+        [[NSNotificationCenter defaultCenter] addObserver:self
+                                                 selector:@selector(didApplicationFinishLaunchingNotification:)
+                                                     name:NSApplicationDidFinishLaunchingNotification
+                                                   object:nil];
         _bundle = plugin;
         _payloadPaths = @[];
-        [self addMenuItems];
-        [self initializeUdpSocket];
-        [self addPayloadFiles];
+
     }
     return self;
 }
+
+- (void)didApplicationFinishLaunchingNotification:(NSNotification *)notification {
+    [[NSNotificationCenter defaultCenter] removeObserver:self name:NSApplicationDidFinishLaunchingNotification object:nil];
+    
+    [self addMenuItems];
+    [self initializeUdpSocket];
+    
+    NSMenuItem *menuItem = [[NSApp mainMenu] itemWithTitle:@"Edit"];
+    if (menuItem) {
+        [[menuItem submenu] addItem:[NSMenuItem separatorItem]];
+        NSMenuItem *actionMenuItem = [[NSMenuItem alloc] initWithTitle:@"Do Action" action:@selector(doMenuAction) keyEquivalent:@""];
+        [actionMenuItem setTarget:self];
+        [[menuItem submenu] addItem:actionMenuItem];
+    }
+}
+
+
 
 - (void)initializeUdpSocket {
     self.udpSocket = [[AsyncUdpSocket alloc] initWithDelegate:self];
